@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_settings"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/design_default_color_primary_dark"
+
+
+        >
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:id="@+id/close_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Close"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true"
+                />
+
+            <TextView
+                android:id="@+id/update_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:text="Update"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/settings_profile_image"
+        android:src="@drawable/profile"
+        android:layout_below="@+id/app_bar_settings"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+     >
+
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/settings_profile_image_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_profile_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="Change image"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/settings_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_profile_image_btn"
+        android:hint="Phone Number"
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        />
+    <EditText
+        android:id="@+id/settings_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_phone_number"
+        android:hint="User Name..."
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        />
+    <EditText
+        android:id="@+id/settings_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_username"
+        android:hint="Address..."
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_address"
+        android:padding="10dp"
+        android:background="@drawable/buttons"
+        android:id="@+id/security_btn"
+        android:text="Increase Security"
+        android:textColor="@color/white"
+        android:layout_margin="15dp"
+        />
+
+        />
+</RelativeLayout>
