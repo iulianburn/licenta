@@ -95,7 +95,7 @@ private String productID="", status="shipped";
         final HashMap<String, Object> cartMap= new HashMap<> ();
         cartMap.put("pid", productID);
         cartMap.put("pname", productName.getText ().toString ());
-
+        cartMap.put ("price", productPrice.getText().toString () );
         cartMap.put("description", productDescription.getText ().toString ());
         cartMap.put("date", saveCurrentDate);
         cartMap.put("time", saveCurrentTime);
