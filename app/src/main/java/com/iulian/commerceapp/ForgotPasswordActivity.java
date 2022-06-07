@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.iulian.commerceapp.Prevalent.Prevalent;
+import com.iulian.commerceapp.Connect.Connect;
 
 import java.util.HashMap;
 
@@ -188,7 +187,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         else
         {
             DatabaseReference ref= FirebaseDatabase.getInstance ().getReference ().child ( "Users" )
-                    .child ( Prevalent.currentonlineUser.getPhone () );
+                    .child ( Connect.currentonlineUser.getPhone () );
 
             HashMap<String, Object>userdataMap= new HashMap<> ();
             userdataMap.put("answer1", a1);
@@ -214,7 +213,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private void    displayPrevAnswers()
     {
         DatabaseReference ref= FirebaseDatabase.getInstance ().getReference ().child ( "Users" )
-                .child ( Prevalent.currentonlineUser.getPhone () );
+                .child ( Connect.currentonlineUser.getPhone () );
 
         ref.child ( "Security Questions" ).addValueEventListener ( new ValueEventListener () {
             @Override

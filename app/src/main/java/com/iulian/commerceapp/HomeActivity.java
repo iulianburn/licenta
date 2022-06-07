@@ -27,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.iulian.commerceapp.Admin.AdminManageProds;
 import com.iulian.commerceapp.Model.Products;
-import com.iulian.commerceapp.Prevalent.Prevalent;
+import com.iulian.commerceapp.Connect.Connect;
 
 import com.iulian.commerceapp.ViewHolder.ProductViewHolder;
 import com.iulian.commerceapp.databinding.ActivityHomeBinding;
@@ -146,8 +146,8 @@ public class HomeActivity extends AppCompatActivity {
 
         if (!type.equals ( "Admin" ))
         {
-            userNameTextView.setText(Prevalent.currentonlineUser.getName());
-            Picasso.get ().load ( Prevalent.currentonlineUser.getImage () ).placeholder ( R.drawable.profile ).into ( profileImageView );
+            userNameTextView.setText( Connect.currentonlineUser.getName());
+            Picasso.get ().load ( Connect.currentonlineUser.getImage () ).placeholder ( R.drawable.profile ).into ( profileImageView );
 
         }
 

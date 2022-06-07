@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.iulian.commerceapp.Prevalent.Prevalent;
+import com.iulian.commerceapp.Connect.Connect;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -87,7 +87,7 @@ public class ConfirmationActivity extends AppCompatActivity
         SimpleDateFormat currentTime= new SimpleDateFormat ("HH:mm:ss a");
         saveCurrentTime= currentTime.format ( calforDate.getTime () );
 
-            final DatabaseReference orderReference= FirebaseDatabase.getInstance ().getReference ().child ( "Orders" ).child ( Prevalent.currentonlineUser.getPhone () );
+            final DatabaseReference orderReference= FirebaseDatabase.getInstance ().getReference ().child ( "Orders" ).child ( Connect.currentonlineUser.getPhone () );
             HashMap<String, Object> orderMap= new HashMap<> ();
         orderMap.put("totalAmount", totalAmount);
         orderMap.put("name", nameConf.getText ().toString ());
@@ -105,7 +105,7 @@ public class ConfirmationActivity extends AppCompatActivity
                 {
                     FirebaseDatabase.getInstance ().getReference ().child ( "Cart List" )
                             .child ( "User View" )
-                            .child ( Prevalent.currentonlineUser.getPhone () )
+                            .child ( Connect.currentonlineUser.getPhone () )
                             .removeValue ().addOnCompleteListener ( new OnCompleteListener<Void> () {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

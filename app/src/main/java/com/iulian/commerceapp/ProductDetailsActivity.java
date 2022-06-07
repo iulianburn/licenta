@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,8 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.iulian.commerceapp.Model.Products;
-import com.iulian.commerceapp.Prevalent.Prevalent;
-import com.rey.material.widget.FloatingActionButton;
+import com.iulian.commerceapp.Connect.Connect;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -101,12 +99,12 @@ private String productID="", status="shipped";
         cartMap.put("time", saveCurrentTime);
         cartMap.put("quantity", numberButton.getNumber ());
         cartMap.put("discount", "");
-        cartListRef.child ( "User View" ).child ( Prevalent.currentonlineUser.getPhone () ).child ( "Products" ).child ( productID ).updateChildren ( cartMap ).addOnCompleteListener ( new OnCompleteListener<Void> () {
+        cartListRef.child ( "User View" ).child ( Connect.currentonlineUser.getPhone () ).child ( "Products" ).child ( productID ).updateChildren ( cartMap ).addOnCompleteListener ( new OnCompleteListener<Void> () {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful ())
                 {
-                    cartListRef.child ( "Admin View" ).child ( Prevalent.currentonlineUser.getPhone () ).child ( "Products" ).child ( productID ).updateChildren ( cartMap ).addOnCompleteListener ( new OnCompleteListener<Void> () {
+                    cartListRef.child ( "Admin View" ).child ( Connect.currentonlineUser.getPhone () ).child ( "Products" ).child ( productID ).updateChildren ( cartMap ).addOnCompleteListener ( new OnCompleteListener<Void> () {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful ())
@@ -155,7 +153,7 @@ private String productID="", status="shipped";
     {
         DatabaseReference orderRefer;
         orderRefer= FirebaseDatabase.getInstance ().getReference ().child ( "Orders" )
-                .child ( Prevalent.currentonlineUser.getPhone () );
+                .child ( Connect.currentonlineUser.getPhone () );
         orderRefer.addValueEventListener ( new ValueEventListener () {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

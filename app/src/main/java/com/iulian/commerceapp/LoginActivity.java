@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.iulian.commerceapp.Admin.AdminCategoryActivity;
 import com.iulian.commerceapp.Model.Users;
-import com.iulian.commerceapp.Prevalent.Prevalent;
+import com.iulian.commerceapp.Connect.Connect;
 import com.rey.material.widget.CheckBox;
 
 import io.paperdb.Paper;
@@ -89,8 +89,8 @@ public class LoginActivity extends AppCompatActivity {
             private void AllowAccessToAccount(final String phone,final String password) {
                 if (chkBoxRememberMe.isChecked())
                 {
-                    Paper.book().write(Prevalent.UserPhoneKey, phone);
-                    Paper.book().write(Prevalent.UserPasswordKey, password);
+                    Paper.book().write( Connect.UserPhoneKey, phone);
+                    Paper.book().write( Connect.UserPasswordKey, password);
 
 
                 }
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                                    Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                                    loadingBar.dismiss();
                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                   Prevalent.currentonlineUser=userData;
+                                   Connect.currentonlineUser=userData;
 
                                    startActivity(intent);
                                }

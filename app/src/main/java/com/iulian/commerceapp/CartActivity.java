@@ -3,7 +3,6 @@ package com.iulian.commerceapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.iulian.commerceapp.Model.Cart;
-import com.iulian.commerceapp.Prevalent.Prevalent;
+import com.iulian.commerceapp.Connect.Connect;
 import com.iulian.commerceapp.ViewHolder.CartViewHolder;
 
 public class CartActivity extends AppCompatActivity
@@ -77,7 +76,7 @@ public class CartActivity extends AppCompatActivity
 
         final DatabaseReference cartListRef= FirebaseDatabase.getInstance ().getReference ().child ( "Cart List" );
 
-        FirebaseRecyclerOptions<Cart> options = new FirebaseRecyclerOptions.Builder<Cart>().setQuery ( cartListRef.child ( "User View" ).child ( Prevalent.currentonlineUser.getPhone () ).child ( "Products" ), Cart.class ).build ();
+        FirebaseRecyclerOptions<Cart> options = new FirebaseRecyclerOptions.Builder<Cart>().setQuery ( cartListRef.child ( "User View" ).child ( Connect.currentonlineUser.getPhone () ).child ( "Products" ), Cart.class ).build ();
 
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter= new FirebaseRecyclerAdapter<Cart, CartViewHolder> (options) {
             @Override
@@ -113,7 +112,7 @@ public class CartActivity extends AppCompatActivity
                             }
                             if (i==1)
                             {
-                                cartListRef.child ( "User View" ).child ( Prevalent.currentonlineUser.getPhone ()  )
+                                cartListRef.child ( "User View" ).child ( Connect.currentonlineUser.getPhone ()  )
                                         .child ( "Products" ).child ( model.getPid () ).removeValue ().addOnCompleteListener ( new OnCompleteListener<Void> () {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -153,7 +152,7 @@ public class CartActivity extends AppCompatActivity
     {
         DatabaseReference orderRefer;
         orderRefer= FirebaseDatabase.getInstance ().getReference ().child ( "Orders" )
-                .child ( Prevalent.currentonlineUser.getPhone () );
+                .child ( Connect.currentonlineUser.getPhone () );
         orderRefer.addValueEventListener ( new ValueEventListener () {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

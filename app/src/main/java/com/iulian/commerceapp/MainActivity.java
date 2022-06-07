@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.iulian.commerceapp.Model.Users;
-import com.iulian.commerceapp.Prevalent.Prevalent;
+import com.iulian.commerceapp.Connect.Connect;
 
 import io.paperdb.Paper;
 
@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        String UserPhoneKey= Paper.book().read(Prevalent.UserPhoneKey);
-        String UserPasswordKey= Paper.book().read(Prevalent.UserPasswordKey);
+        String UserPhoneKey= Paper.book().read( Connect.UserPhoneKey);
+        String UserPasswordKey= Paper.book().read( Connect.UserPasswordKey);
 
         if (UserPhoneKey!=null && UserPasswordKey!=null)
         {
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             loadingBar.dismiss();
 
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class );
-                            Prevalent.currentonlineUser=userData;
+                            Connect.currentonlineUser=userData;
                             startActivity(intent);
 
                         }

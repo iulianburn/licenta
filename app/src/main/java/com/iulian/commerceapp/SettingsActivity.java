@@ -8,7 +8,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.ResultReceiver;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -27,11 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.iulian.commerceapp.Prevalent.Prevalent;
+import com.iulian.commerceapp.Connect.Connect;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
@@ -126,7 +123,7 @@ public class SettingsActivity extends AppCompatActivity {
         userMap.put ( "address", addressEditText.getText ().toString ());
         userMap.put ( "phone", userPhoneEditText.getText ().toString ());
 
-        ref.child ( Prevalent.currentonlineUser.getPhone () ).updateChildren ( userMap );
+        ref.child ( Connect.currentonlineUser.getPhone () ).updateChildren ( userMap );
 
         startActivity ( new Intent (SettingsActivity.this, HomeActivity.class));
         Toast.makeText ( SettingsActivity.this, "Profile info updated successfully", Toast.LENGTH_SHORT ).show ();
@@ -180,7 +177,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         if (imageUri!=null)
         {
-        final StorageReference fileReference=storageProfilePictureReference.child ( Prevalent.currentonlineUser.getPhone () + ".jpg");
+        final StorageReference fileReference=storageProfilePictureReference.child ( Connect.currentonlineUser.getPhone () + ".jpg");
          uploadTask= fileReference.putFile ( imageUri );
          uploadTask.continueWithTask ( new Continuation () {
              @Override
@@ -207,7 +204,7 @@ public class SettingsActivity extends AppCompatActivity {
                      userMap.put ( "phone", userPhoneEditText.getText ().toString ());
                      userMap.put ( "image", myUrl);
 
-                     ref.child ( Prevalent.currentonlineUser.getPhone () ).updateChildren ( userMap );
+                     ref.child ( Connect.currentonlineUser.getPhone () ).updateChildren ( userMap );
 
 
                      progressDialog.dismiss ();
@@ -235,7 +232,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void userInfoDisplay(CircleImageView profileImageView, EditText fullNameEditText, EditText userPhoneEditText, EditText addressEditText)
     {
-        DatabaseReference UserRef= FirebaseDatabase.getInstance ().getReference ().child ( "Users" ).child ( Prevalent.currentonlineUser.getPhone () );
+        DatabaseReference UserRef= FirebaseDatabase.getInstance ().getReference ().child ( "Users" ).child ( Connect.currentonlineUser.getPhone () );
         UserRef.addValueEventListener ( new ValueEventListener () {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
