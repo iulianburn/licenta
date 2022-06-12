@@ -1,4 +1,4 @@
-package com.iulian.commerceapp;
+package com.iulian.commerceapp.Functionality;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +27,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.iulian.commerceapp.Connect.Connect;
+import com.iulian.commerceapp.R;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
@@ -53,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView( R.layout.activity_settings);
 
         storageProfilePictureReference= FirebaseStorage.getInstance ().getReference ().child ( "Profile pictures" );
 

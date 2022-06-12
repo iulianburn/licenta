@@ -1,4 +1,4 @@
-package com.iulian.commerceapp;
+package com.iulian.commerceapp.Functionality;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.iulian.commerceapp.Model.Products;
 import com.iulian.commerceapp.Connect.Connect;
+import com.iulian.commerceapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -40,7 +41,6 @@ private String productID="", status="shipped";
         setContentView ( R.layout.activity_product_details );
 
         productID= getIntent ().getStringExtra ( "pid" );
-
         addToCart =(Button) findViewById ( R.id.add_product_to_cart_btn );
         numberButton=(ElegantNumberButton) findViewById ( R.id.number_btn );
         productImage=(ImageView)findViewById ( R.id.product_image_details );
@@ -136,7 +136,7 @@ private String productID="", status="shipped";
                     Products products=snapshot.getValue (Products.class);
 
                     productName.setText(products.getPname ());
-                    productPrice.setText ( products.getPrice () );
+                    productPrice.setText ( products.getPrice ()  );
                     productDescription.setText ( products.getDescription () );
                     Picasso.get ().load ( products.getImage () ).into ( productImage );
 

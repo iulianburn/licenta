@@ -1,4 +1,4 @@
-package com.iulian.commerceapp;
+package com.iulian.commerceapp.Functionality;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.iulian.commerceapp.Model.Cart;
 import com.iulian.commerceapp.Connect.Connect;
+import com.iulian.commerceapp.R;
 import com.iulian.commerceapp.ViewHolder.CartViewHolder;
 
 public class CartActivity extends AppCompatActivity
@@ -81,8 +82,8 @@ public class CartActivity extends AppCompatActivity
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter= new FirebaseRecyclerAdapter<Cart, CartViewHolder> (options) {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
-            holder.txtproductQuantity.setText ( "Quantity" + model.getQuantity () );
-            holder.txtproductPrice.setText ("Price per unit" + model.getPrice () + "$");
+            holder.txtproductQuantity.setText ( "Quantity: " + model.getQuantity () );
+            holder.txtproductPrice.setText ("Price per unit: " + model.getPrice () + "$");
             holder.textproductName.setText ( model.getPname () );
 
             int TotalPricePerProduct=((Integer.valueOf ( model.getPrice () )))* Integer.valueOf ( model.getQuantity () );

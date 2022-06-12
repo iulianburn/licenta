@@ -1,4 +1,4 @@
-package com.iulian.commerceapp;
+package com.iulian.commerceapp.Functionality;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.iulian.commerceapp.Admin.AdminCategoryActivity;
 import com.iulian.commerceapp.Model.Users;
 import com.iulian.commerceapp.Connect.Connect;
+import com.iulian.commerceapp.R;
 import com.rey.material.widget.CheckBox;
 
 import io.paperdb.Paper;
@@ -40,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView( R.layout.activity_login);
 
         LoginButton=(Button) findViewById(R.id.login_btn);
         InputPassword=(EditText) findViewById(R.id.login_password_input);

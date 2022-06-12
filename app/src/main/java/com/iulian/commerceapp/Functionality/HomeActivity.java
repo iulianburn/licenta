@@ -1,4 +1,4 @@
-package com.iulian.commerceapp;
+package com.iulian.commerceapp.Functionality;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +29,7 @@ import com.iulian.commerceapp.Admin.AdminManageProds;
 import com.iulian.commerceapp.Model.Products;
 import com.iulian.commerceapp.Connect.Connect;
 
+import com.iulian.commerceapp.R;
 import com.iulian.commerceapp.ViewHolder.ProductViewHolder;
 import com.iulian.commerceapp.databinding.ActivityHomeBinding;
 import com.squareup.picasso.Picasso;
@@ -171,7 +172,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
                 holder.txtproductName.setText(model.getPname());
-                holder.txtproductDescription.setText(model.getDescription ());
                 holder.txtproductPrice.setText("Price:" + model.getPrice()+"$");
                 Picasso.get().load(model.getImage()).into(holder.imageView);
 

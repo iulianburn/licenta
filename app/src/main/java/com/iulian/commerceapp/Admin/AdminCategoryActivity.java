@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.iulian.commerceapp.HomeActivity;
-import com.iulian.commerceapp.MainActivity;
+import com.iulian.commerceapp.Functionality.HomeActivity;
+import com.iulian.commerceapp.Functionality.MainActivity;
 import com.iulian.commerceapp.R;
 
 public class AdminCategoryActivity extends AppCompatActivity {

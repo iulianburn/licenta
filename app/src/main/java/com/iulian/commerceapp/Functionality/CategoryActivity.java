@@ -1,4 +1,4 @@
-package com.iulian.commerceapp;
+package com.iulian.commerceapp.Functionality;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.iulian.commerceapp.Model.Products;
+import com.iulian.commerceapp.R;
 import com.iulian.commerceapp.ViewHolder.ProductViewHolder;
 import com.squareup.picasso.Picasso;
 

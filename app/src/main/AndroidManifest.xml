@@ -15,16 +15,16 @@
         android:theme="@style/Theme.CommerceApp"
         tools:replace="android:theme">
         <activity
-            android:name=".CategoryActivity"
+            android:name=".Functionality.CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".Functionality.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".Admin.AdminManageProds"
             android:exported="false" />
         <activity
-            android:name=".SearchingActivity"
+            android:name=".Functionality.SearchingActivity"
             android:exported="false" />
         <activity
             android:name=".Admin.AdminProductsOrder"
@@ -33,19 +33,19 @@
             android:name=".Admin.AdminOrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".ConfirmationActivity"
+            android:name=".Functionality.ConfirmationActivity"
             android:exported="false" />
         <activity
-            android:name=".CartActivity"
+            android:name=".Functionality.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductDetailsActivity"
+            android:name=".Functionality.ProductDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Functionality.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Functionality.HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.CommerceApp.NoActionBar" />
@@ -56,13 +56,13 @@
             android:name=".Admin.AdminAddNewProductActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Functionality.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Functionality.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Functionality.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,7 +7,7 @@
     android:background="@drawable/welcome"
 
 
-    tools:context=".LoginActivity">
+    tools:context=".Functionality.LoginActivity">
 
     <TextView
         android:id="@+id/app_logo1"
