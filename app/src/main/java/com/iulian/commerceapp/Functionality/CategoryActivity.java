@@ -2,6 +2,7 @@ package com.iulian.commerceapp.Functionality;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class CategoryActivity extends AppCompatActivity {
     private TextView title;
     private ImageView laptops, phones, headphones, books, watches;
     private String type="";
+    private RecyclerView searchListC;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,14 +92,13 @@ public class CategoryActivity extends AppCompatActivity {
 
             FirebaseRecyclerOptions<Products> options=
                     new FirebaseRecyclerOptions.Builder<Products> ()
-                            .setQuery ( reference.orderByChild ( "category" ).startAt (type), Products.class).build ();
+                            .setQuery ( reference.orderByChild ( "category" ).equalTo (type), Products.class).build ();
 
         FirebaseRecyclerAdapter <Products, ProductViewHolder > adapter= new FirebaseRecyclerAdapter<Products, ProductViewHolder> (options) {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
                 holder.txtproductName.setText(model.getPname());
-                holder.txtproductDescription.setText(model.getDescription ());
-                holder.txtproductPrice.setText("Price:" + model.getPrice()+"$");
+                holder.txtproductPrice.setText("Price:" + model.getPrice()+ "$");
                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
                 holder.itemView.setOnClickListener ( new View.OnClickListener () {
@@ -118,6 +120,8 @@ public class CategoryActivity extends AppCompatActivity {
                 return holder;
             }
         };
+        searchListC.setAdapter ( adapter );
+        adapter.startListening ();
 
     }
 }

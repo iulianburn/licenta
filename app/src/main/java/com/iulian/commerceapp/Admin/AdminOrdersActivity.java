@@ -19,6 +19,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.iulian.commerceapp.Connect.Connect;
 import com.iulian.commerceapp.Model.AdminOrdersTC;
 import com.iulian.commerceapp.R;
 
@@ -26,6 +27,8 @@ public class AdminOrdersActivity extends AppCompatActivity {
 
     private RecyclerView orderList;
     private DatabaseReference orderReference;
+    private String parentDbName ="Cart List";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +121,12 @@ public class AdminOrdersActivity extends AppCompatActivity {
 
     private void ConfirmOrder(String uID) {
         orderReference.child ( uID ).removeValue ();
+        FirebaseDatabase.getInstance ().getReference ().child ( "Cart List" )
+                .child ( "Admin View" )
+                .child ( uID )
+                .removeValue ();
+
+
     }
 
     public static class AdminOrderViewHolder extends RecyclerView.ViewHolder

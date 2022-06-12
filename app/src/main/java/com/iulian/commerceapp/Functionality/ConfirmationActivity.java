@@ -112,12 +112,8 @@ public class ConfirmationActivity extends AppCompatActivity
                         public void onComplete(@NonNull Task<Void> task) {
                          if (task.isSuccessful ())
                          {
-                             Toast.makeText ( ConfirmationActivity.this, "Your order is confirmed! The package will be with you soon!", Toast.LENGTH_SHORT ).show ();
-                             Intent intent=new Intent (ConfirmationActivity.this,HomeActivity.class);
-                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                             Intent intent= new Intent (ConfirmationActivity.this, PaymentActivity.class);
                              startActivity ( intent );
-                             finish ();
-
 
                          }
                         }
