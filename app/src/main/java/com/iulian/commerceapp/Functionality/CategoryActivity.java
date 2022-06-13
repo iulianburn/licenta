@@ -2,6 +2,7 @@ package com.iulian.commerceapp.Functionality;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -40,6 +41,8 @@ public class CategoryActivity extends AppCompatActivity {
         books= (ImageView) findViewById ( R.id.books_ca );
         watches=(ImageView) findViewById ( R.id.watches_ca );
         title=(TextView) findViewById ( R.id.choose_category );
+        searchListC=(RecyclerView) findViewById ( R.id.searching_listC);
+        searchListC.setLayoutManager ( new LinearLayoutManager ( CategoryActivity.this ) );
 
 
         laptops.setOnClickListener ( new View.OnClickListener () {
